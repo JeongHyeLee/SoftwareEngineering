@@ -5,8 +5,7 @@ public class note {
 
 	note noteList[] = new note[100];
 	
-	int numberOfNote=0;
-	
+	int numberOfNote=0;	
 
 	public static void main(String[] args) {
 		System.out.println("Note 관리 프로그램입니다.");
