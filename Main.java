@@ -12,6 +12,7 @@ public class Main {
 		
 		/*----------Constructor----------*/
 		ToDoList ToDoList = new ToDoList();
+		Contacts01 Contact = new Contacts01(null, null, null);
 		/*-----------------------------*/
 		
 		Scanner scan = new Scanner(System.in);
@@ -28,7 +29,7 @@ public class Main {
 			switch(mainMenuSelect) {
 				case 1:
 					System.out.println();
-					System.out.println("(수연) : 주소록 실행");
+					Contacts01.AddressBook();
 					break;
 					
 				case 2:
@@ -52,6 +53,5 @@ public class Main {
 					mainIsWork = false;
 			}
 		}
-		scan.close();
 	}
 }

@@ -12,9 +12,8 @@ public class Contacts01{
 		this.email = email;
 	}
 	
-	public static void main(String[] args) {
+	public static void AddressBook() {
 		Scanner scan = new Scanner(System.in);
-		ArrayList contacts = new ArrayList();	
 		int pick;
 		Contacts add = new Contacts();
 		while(true) {
@@ -39,6 +38,15 @@ public class Contacts01{
 				System.out.print("contact of name to update: ");
 				String name = scan.next();
 				add.UpdateContact(name);
+				
+				System.out.print("name: ");
+				String newname = scan.next();
+				System.out.print("phone number: ");
+				String phonenum = scan.next();
+				System.out.print("email: ");
+				String email = scan.next();
+				
+				add.CreateContact(newname, phonenum, email);
 				System.out.print("수정 완료!\n");
 				}
 			else if(pick == 4) {
@@ -50,13 +58,11 @@ public class Contacts01{
 			else
 				break;		
 		}
-		scan.close();
 	}
 }
 
 
 class Contacts {
-	Scanner scan = new Scanner(System.in);
 	ArrayList<Contacts01> contacts;
 	
 	public Contacts() {
@@ -73,15 +79,6 @@ class Contacts {
 			Contacts01 c = (Contacts01)contacts.get(i);
 			if(name.equals(c.name)) {
 				contacts.remove(c);
-				
-				System.out.print("name: ");
-				String newname = scan.next();
-				System.out.print("phone number: ");
-				String phonenum = scan.next();
-				System.out.print("email: ");
-				String email = scan.next();
-				
-				CreateContact(newname, phonenum, email);
 			}
 		}
 		return (true);
