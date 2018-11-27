@@ -8,6 +8,7 @@ public class note {
 	int numberOfNote=0;
 	
 
+
 	public static void main(String[] args) {
 		System.out.println("Note 관리 프로그램입니다.");
 		System.out.println("1.노트 생성 2.노트 확인 3.노트수정  4.노트삭제");
