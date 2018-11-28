@@ -13,6 +13,7 @@ public class Main {
 		/*----------Constructor----------*/
 		ToDoList ToDoList = new ToDoList();
 		Contacts Contacts = new Contacts(null, null, null);
+		Notes Note = new Notes();
 		/*-----------------------------*/
 		
 		Scanner scan = new Scanner(System.in);
@@ -44,7 +45,7 @@ public class Main {
 					
 				case 4:
 					System.out.println();
-					System.out.println("(정혜) : 메모 실행");
+					Notes.note();
 					break;
 					
 				case 5:
