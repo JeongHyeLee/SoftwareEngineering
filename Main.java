@@ -12,7 +12,7 @@ public class Main {
 		
 		/*----------Constructor----------*/
 		ToDoList ToDoList = new ToDoList();
-		Contacts01 Contact = new Contacts01(null, null, null);
+		Contacts Contacts = new Contacts(null, null, null);
 		/*-----------------------------*/
 		
 		Scanner scan = new Scanner(System.in);
@@ -29,7 +29,7 @@ public class Main {
 			switch(mainMenuSelect) {
 				case 1:
 					System.out.println();
-					Contacts01.AddressBook();
+					Contacts.AddressBook();
 					break;
 					
 				case 2:

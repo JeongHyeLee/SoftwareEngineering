@@ -1,21 +1,21 @@
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class Contacts01{
+public class Contacts{
 	String name;
 	String phonenum;
 	String email;
 	
-	public Contacts01(String name, String phonenum, String email) {
+	public Contacts(String name, String phonenum, String email) {
 		this.name = name;
 		this.phonenum = phonenum;
 		this.email = email;
 	}
 	
-	public static void AddressBook() {
+	public void AddressBook() {
 		Scanner scan = new Scanner(System.in);
 		int pick;
-		Contacts add = new Contacts();
+		Contact add = new Contact();
 		while(true) {
 			System.out.print("1. create 2. view 3. update 4. delete 5. exit\n원하는 작업을 선택하세요:");
 			pick = scan.nextInt();
@@ -62,21 +62,21 @@ public class Contacts01{
 }
 
 
-class Contacts {
-	ArrayList<Contacts01> contacts;
+class Contact {
+	ArrayList<Contacts> contacts;
 	
-	public Contacts() {
-		contacts = new ArrayList<Contacts01>();
+	public Contact() {
+		contacts = new ArrayList<Contacts>();
 	}
 	public Boolean CreateContact(String name, String phonenum, String email) {
-		Contacts01 c = new Contacts01(name, phonenum, email);
+		Contacts c = new Contacts(name, phonenum, email);
 		contacts.add(c);
 		return(true);
 	}
 	
 	public Boolean UpdateContact(String name) {
 		for(int i=0;i<contacts.size(); i++) {
-			Contacts01 c = (Contacts01)contacts.get(i);
+			Contacts c = (Contacts)contacts.get(i);
 			if(name.equals(c.name)) {
 				contacts.remove(c);
 			}
@@ -86,7 +86,7 @@ class Contacts {
 
 	public Boolean DeleteContact(String name) {
 		for(int i=0;i<contacts.size(); i++) {
-			Contacts01 c = (Contacts01)contacts.get(i);
+			Contacts c = (Contacts)contacts.get(i);
 			if(name.equals(c.name)) {
 				contacts.remove(c);
 			}
@@ -96,7 +96,7 @@ class Contacts {
 	
 	public void ViewContact() {
 		for(int i=0;i<contacts.size(); i++) {
-			Contacts01 c = (Contacts01)contacts.get(i);
+			Contacts c = (Contacts)contacts.get(i);
 			System.out.print(c.name+"\t"+c.phonenum+"\t"+c.email+"\n");
 		}
 	}
