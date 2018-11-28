@@ -44,7 +44,7 @@ public class Main {
 					break;
 					
 				case 4:
-					System.out.println();
+					System.out.println("editing note class");
 					Notes.note();
 					break;
 					
