@@ -21,9 +21,9 @@ public class Main {
 		while(mainIsWork) {
 			System.out.println();
 			System.out.println("*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*");
-			System.out.println("*                ÅëÇÕ Management ÇÁ·Î±×·¥ÀÔ´Ï´Ù.               *");
+			System.out.println("*                í†µí•© Management í”„ë¡œê·¸ë¨ì…ë‹ˆë‹¤.               *");
 			System.out.println("*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*");
-			System.out.print("\n¿øÇÏ´Â ÀÛ¾÷À» ¼±ÅÃÇÏ¼¼¿ä.\n1.Contacts, 2.To-Do List, 3.Appointments, 4.Notes, 5.Quit\n\n(¼ıÀÚ 1~5 Áß ÇÏ³ª ¼±ÅÃ) > ");
+			System.out.print("\nì›í•˜ëŠ” ì‘ì—…ì„ ì„ íƒí•˜ì„¸ìš”.\n1.Contacts, 2.To-Do List, 3.Appointments, 4.Notes, 5.Quit\n\n(ìˆ«ì 1~5 ì¤‘ í•˜ë‚˜ ì„ íƒ) > ");
 			
 			mainMenuSelect = scan.nextInt();
 			
@@ -40,17 +40,17 @@ public class Main {
 					
 				case 3:
 					System.out.println();
-					System.out.println("(Áö¼ö ) : ¾à¼Ó ½ÇÇà");
+					System.out.println("(ì§€ìˆ˜ ) : ì•½ì† ì‹¤í–‰");
 					break;
 					
 				case 4:
 					System.out.println("editing note class");
-					Notes.note();
+					Notes.NoteManagament();
 					break;
 					
 				case 5:
 					System.out.println();
-					System.out.println("ÅëÇÕ Management ÇÁ·Î±×·¥ Á¾·á");
+					System.out.println("í†µí•© Management í”„ë¡œê·¸ë¨ ì¢…ë£Œ");
 					mainIsWork = false;
 			}
 		}
