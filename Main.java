@@ -44,7 +44,7 @@ public class Main {
 					break;
 					
 				case 4:
-					Notes.NoteManagement();
+					Notes.ManageNotes();
 					break;
 					
 				case 5:

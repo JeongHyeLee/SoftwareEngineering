@@ -23,7 +23,7 @@ public class Notes {
 	public void setMemo(String memo) {this.memo=memo;}
 	
 	
-	public void NoteManagement() {
+	public void ManageNotes() {
 		
 		Note aNote = new Note();
 		int menu = 0;
