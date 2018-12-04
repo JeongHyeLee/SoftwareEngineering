@@ -13,7 +13,7 @@ public class Main {
 		/*----------Constructor----------*/
 		ToDoList ToDoList = new ToDoList();
 		Contacts Contacts = new Contacts(null, null, null);
-		Notes Note = new Notes();
+		Notes Notes = new Notes();
 		/*-----------------------------*/
 		
 		Scanner scan = new Scanner(System.in);
@@ -44,8 +44,7 @@ public class Main {
 					break;
 					
 				case 4:
-					System.out.println("editing note class");
-					Notes.note();
+					Notes.NoteManagement();
 					break;
 					
 				case 5:
