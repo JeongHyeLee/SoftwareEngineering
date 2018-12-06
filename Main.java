@@ -44,12 +44,9 @@ public class Main {
 					break;
 					
 				case 4:
-<<<<<<< HEAD
 					Notes.ManageNotes();
-=======
 					System.out.println("editing note class");
 					Notes.NoteManagament();
->>>>>>> origin/master
 					break;
 					
 				case 5:
