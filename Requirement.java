@@ -14,7 +14,9 @@ public class Requirement {
 	//	ArrayList dateList=new ArrayList();
 	//	ArrayList personList=new ArrayList();
 	//	ArrayList locationList=new ArrayList();
-	public Requirement() {}
+	public Requirement() {
+		
+	}
 
 
 
