@@ -106,7 +106,7 @@ public class Requirement {
 
 	public void DeleteAppointment (int date, String person, String location) {
 		System.out.println("Appointment를 Delete합니다.");
-		System.out.print("삭제고 싶은 Date 입력(예시181120): ");
+		System.out.print("삭제하고 싶은 Date 입력(예시181120): ");
 		int answerDate=scanner.nextInt();
 
 		System.out.print("삭제하고 싶은 Person 입력: ");
