@@ -5,7 +5,7 @@ public class Contacts{
 	String name;
 	String phonenum;
 	String email;
-	
+
 	public Contacts(String name, String phonenum, String email) {
 		this.name = name;
 		this.phonenum = phonenum;
@@ -15,7 +15,8 @@ public class Contacts{
 	public void AddressBook() {
 		Scanner scan = new Scanner(System.in);
 		int pick;
-		Contact add = new Contact();
+		Boolean flag;
+		Contact contact = new Contact();
 		while(true) {
 			System.out.print("1. create 2. view 3. update 4. delete 5. exit\n원하는 작업을 선택하세요:");
 			pick = scan.nextInt();
@@ -26,35 +27,41 @@ public class Contacts{
 				String phonenum = scan.next();
 				System.out.print("email: ");
 				String email = scan.next();
-				
-				add.CreateContact(name, phonenum, email);
-				
-				System.out.print("추가 완료!\n");
+
+				contact.CreateContact(name, phonenum, email);
+				System.out.print("추가 완료!\n\n");
 			}		
+
 			else if(pick == 2) {
-				add.ViewContact();
+				contact.ViewContact();
+				System.out.print('\n');
 			}
+			
 			else if(pick == 3) {
 				System.out.print("contact of name to update: ");
 				String name = scan.next();
-				add.UpdateContact(name);
+				flag = contact.UpdateContact(name);
 				
-				System.out.print("name: ");
-				String newname = scan.next();
-				System.out.print("phone number: ");
-				String phonenum = scan.next();
-				System.out.print("email: ");
-				String email = scan.next();
-				
-				add.CreateContact(newname, phonenum, email);
-				System.out.print("수정 완료!\n");
-				}
+				if(flag) {
+					System.out.print("name: ");
+					String newname = scan.next();
+					System.out.print("phone number: ");
+					String phonenum = scan.next();
+					System.out.print("email: ");
+					String email = scan.next();
+					
+					contact.CreateContact(newname, phonenum, email);
+					System.out.print("수정 완료!\n\n");
+				}	
+			}
+			
 			else if(pick == 4) {
 				System.out.print("contact of name to delete: ");
 				String name = scan.next();
-				add.DeleteContact(name);
-				System.out.print("삭제 완료!\n");
+				contact.DeleteContact(name);
+				System.out.print("삭제 완료!\n\n");
 			}
+			
 			else
 				break;		
 		}
@@ -64,24 +71,27 @@ public class Contacts{
 
 class Contact {
 	ArrayList<Contacts> contacts;
-	
 	public Contact() {
 		contacts = new ArrayList<Contacts>();
 	}
+
 	public Boolean CreateContact(String name, String phonenum, String email) {
 		Contacts c = new Contacts(name, phonenum, email);
-		contacts.add(c);
-		return(true);
+		if(contacts.add(c))
+			return(true);
+		else
+			return(false);
 	}
-	
+
 	public Boolean UpdateContact(String name) {
 		for(int i=0;i<contacts.size(); i++) {
 			Contacts c = (Contacts)contacts.get(i);
 			if(name.equals(c.name)) {
 				contacts.remove(c);
+				return(true);
 			}
 		}
-		return (true);
+		return (false);
 	}
 
 	public Boolean DeleteContact(String name) {
@@ -89,11 +99,12 @@ class Contact {
 			Contacts c = (Contacts)contacts.get(i);
 			if(name.equals(c.name)) {
 				contacts.remove(c);
+				return (true);
 			}
 		}
-		return (true);
+		return(false);
 	}
-	
+
 	public void ViewContact() {
 		for(int i=0;i<contacts.size(); i++) {
 			Contacts c = (Contacts)contacts.get(i);
