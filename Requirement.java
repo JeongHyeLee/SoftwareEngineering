@@ -1,144 +1,166 @@
+
 import java.util.Scanner;
-import java.util.ArrayList;
-import java.util.Iterator;
+import java.util.Vector;
 
+class Word {
+	private int date;
+	private String person;
+	private String location;
 
-
-
-public class Requirement {
-	Scanner scanner=new Scanner(System.in);
-	public static ArrayList<String> dateList=new ArrayList<String>();
-	public static ArrayList<String> personList=new ArrayList<String>();
-	public static ArrayList<String> locationList=new ArrayList<String>();
-	public static int ii;
-	//	ArrayList dateList=new ArrayList();
-	//	ArrayList personList=new ArrayList();
-	//	ArrayList locationList=new ArrayList();
-	public Requirement() {
-		
+	public Word(int date, String person, String location) {
+		this.date = date;
+		this.person = person;
+		this.location = location;
+	}
+	
+	public int getDate() {
+		return date;
+	}
+	public String getPerson() {
+		return person;
 	}
 
-
-
-	public static boolean CreateAppointment(int date, String person, String location) {
-
-		String strdate=String.valueOf(date);
-
-		dateList.add(strdate);
-		personList.add(person);
-		locationList.add(location);
-
-
-		return true;
+	public String getLocation() {
+		return location;
 	}
-	public static void ViewAppointment() {
-
-		System.out.println(dateList.size());
-		for(int i=0;i<dateList.size();i++) {
-			System.out.print(dateList.get(i)+"  "+ personList.get(i)+"  "+locationList.get(i)+"\n");
-
-		}
-	}
-
-	public static void UpdateAppointment(int date, String person, String location) {
-
-		String strdate=String.valueOf(date);
-
-		dateList.set(ii, strdate);
-		personList.set(ii,person);
-		locationList.set(ii,location);
-
-
-	}
-
-
-
-
-	public static void DeleteAppointment (int date, String person, String location) {
-		String strdate=String.valueOf(date);
-		for(int i=0;i<dateList.size();i++) {
-			if(strdate.equals(dateList.get(i).toString())&& person.equals(personList.get(i).toString())&& location.equals(locationList.get(i).toString())) {
-				dateList.remove(i);
-				personList.remove(i);
-				locationList.remove(i);
-				break;
-
-
-			}
-
-
-
-			//		
-			//		System.out.println(dateList.size());
-			//		for(int i=0;i<dateList.size();i++) {
-			//			System.out.print(dateList.get(i)+"  "+ personList.get(i)+"  "+locationList.get(i)+"\n");
-
-		}
-
-
-	}
-
-
-	public static void main(String[] args) {
-		Scanner scanner=new Scanner(System.in);
-
-		while(true) {
-			System.out.println("Appointment manage"+"\n"+ "1.Create 2.View 3.Update 4.Delete");
-
-			int answer=scanner.nextInt();
-
-			if(answer==1) {
-				System.out.print("��¥(����:181124), ���, ��ġ ������ ���ʷ� �Է�>>");
-				int date=scanner.nextInt();
-				String person=scanner.next();
-				String location=scanner.next();
-
-				CreateAppointment(date,  person,  location) ;
-			}
-			else if(answer==2) {
-
-				ViewAppointment();
-
-
-
-			}
-			else if(answer==3) {
-				System.out.print("Write appointments' date, person, location to update(ex. 181224 Jisoo SMUnicersity)>>");
-				int date=scanner.nextInt();
-				String person=scanner.next();
-				String location=scanner.next();
-				String strdate=String.valueOf(date);
-
-				for(ii=0;ii<dateList.size();ii++) {
-					if(strdate.equals(dateList.get(ii).toString())&& person.equals(personList.get(ii).toString())&& location.equals(locationList.get(ii).toString())) {
-						System.out.print("Update:");
-						date=scanner.nextInt();
-						person=scanner.next();
-						location=scanner.next();
-						UpdateAppointment(date,  person, location);
-						break;
-					}
-
-
-				}}
-			else if(answer==4) {
-				System.out.print("������ �� �Է�:");
-				int date=scanner.nextInt();
-				String person=scanner.next();
-				String location=scanner.next();
-
-				DeleteAppointment ( date,  person,  location);
-
-
-
-
-			}
-		}
-
-
-
-
+	public void updateValues(int date, String person, String location) {
+		this.date = date;
+		this.person = person;
+		this.location = location;
 	}
 }
 
 
+
+public class Requirement {
+	Scanner scanner = new Scanner(System.in);
+	private Vector<Word> v;
+	public int answer;
+	int date;
+	String location, person;
+
+
+
+	Requirement() {
+		v= new Vector<Word>();
+	}
+
+	public Boolean CreateAppointment(int date, String person, String location) {
+		System.out.print("날짜 입력(예시181120): ");
+		int answerDate=scanner.nextInt();
+
+		System.out.print("Person 입력: ");
+		String answerPerson=scanner.next();
+
+		System.out.print("Location 입력: ");
+		String answerLocation=scanner.next();
+
+		v.add(new Word(answerDate, answerPerson, answerLocation));
+
+		System.out.println("Create 완료");
+		return true;
+	}
+
+
+	public void ViewAppointment() {
+		for(int i=0;i<v.size();i++) {
+			Word wordanswer=v.get(i);
+			System.out.print(wordanswer.getDate()+", ");
+			System.out.print(wordanswer.getPerson()+", ");
+			System.out.print(wordanswer.getLocation()+"\n");
+		}	
+	}
+
+	public void UpdateAppointment(int date, String person, String location) {
+		System.out.println("Appointment를 Update합니다.");
+		System.out.print("수정하고 싶은 Date 입력(예시181120): ");
+		int answerDate=scanner.nextInt();
+
+		System.out.print("수정하고 싶은 Person 입력: ");
+		String answerPerson=scanner.next();
+
+		System.out.print("수정하고 싶은 Location 입력: ");
+		String answerLocation=scanner.next();
+		
+		
+		for(int i=0;i<v.size();i++) {
+			Word wordanswer=v.get(i);
+			if(wordanswer.getDate()==answerDate && answerPerson.equals(wordanswer.getPerson()) &&answerLocation.equals(wordanswer.getLocation())) {
+				System.out.print("Date 입력(예시181120): ");
+				answerDate=scanner.nextInt();
+
+				System.out.print("Person 입력: ");
+				answerPerson=scanner.next();
+
+				System.out.print("Location 입력: ");
+				answerLocation=scanner.next();
+				
+				wordanswer.updateValues(answerDate, answerPerson, answerLocation);
+				System.out.println("Update 완료");
+				return;
+			}
+			
+		}	
+
+	}
+
+	public void DeleteAppointment (int date, String person, String location) {
+		System.out.println("Appointment를 Delete합니다.");
+		System.out.print("삭제고 싶은 Date 입력(예시181120): ");
+		int answerDate=scanner.nextInt();
+
+		System.out.print("삭제하고 싶은 Person 입력: ");
+		String answerPerson=scanner.next();
+
+		System.out.print("삭제하고 싶은 Location 입력: ");
+		String answerLocation=scanner.next();
+		
+		for(int i=0;i<v.size();i++) {
+			Word wordanswer=v.get(i);
+			if(wordanswer.getDate()==answerDate && answerPerson.equals(wordanswer.getPerson()) &&answerLocation.equals(wordanswer.getLocation())) {
+				v.remove(i);
+				return;
+			}
+			
+		}
+		
+		System.out.println("삭제 완료");
+	}
+
+
+	public void run() {
+
+		while(true) {
+			System.out.println("1.Create 2.View 3.Update 4.Delete 5.Exit");
+			answer=scanner.nextInt();
+			if(answer==1) {
+				CreateAppointment(date, person,location);
+			}
+			else if(answer==2) {
+				ViewAppointment();
+			}
+			else if(answer==3) {
+				UpdateAppointment( date, person,  location);
+			}
+			else if(answer==4) {
+				DeleteAppointment ( date, person,location);
+			}
+			else if(answer==5) {
+				System.out.println("종료합니다.");
+				break;
+			}
+
+		}
+	}
+
+
+
+	public static void main(String[] args) {
+
+		Requirement requirement = new Requirement();
+		requirement.run();
+
+		
+	}
+
+}
