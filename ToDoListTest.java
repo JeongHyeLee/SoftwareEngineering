@@ -6,7 +6,7 @@ class ToDoListTest {
 	@Test
 	void CreateListTest() {
 		ToDoList toDoList = new ToDoList();
-		assertSame(toDoList.CreateList("2018-12-01", "2018-12-21", "소프트웨어 공학 Homework #3 끝내기!"), true);
+		assertSame(toDoList.CreateList("2018-12-01", "2018-12-21", "Finish Software Engineering HW3!!!"), true);
 	}
 	
 	@Test
