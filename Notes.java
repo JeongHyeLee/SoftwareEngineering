@@ -25,32 +25,29 @@ public class Notes {
 		
 		Note aNote = new Note();
 		int menu = 0;
-		System.out.println("Note °ü¸® ÇÁ·Î±×·¥ÀÔ´Ï´Ù.");
+		System.out.println("Note ê´€ë¦¬ í”„ë¡œê·¸ë¨ì…ë‹ˆë‹¤.");
 		
 		while(menu!=5) {
-			System.out.println("1.³ëÆ® »ı¼º 2.³ëÆ® È®ÀÎ 3.³ëÆ®¼öÁ¤  4.³ëÆ®»èÁ¦ 5.³ª°¡±â");
-			System.out.print("¿øÇÏ´Â ¸Ş´º¸¦ ¼±ÅÃÇÏ¼¼¿ä : ");
+			System.out.println("1.create 2.view 3.update 4.delete 5.exit");
+			System.out.print("ì›í•˜ëŠ” ë©”ë‰´ë¥¼ ì„ íƒí•˜ì„¸ìš” : ");
 			
 			Scanner scan = new Scanner(System.in);
 			menu = scan.nextInt();
 			
 			if(menu==1) {
-				/*
-				System.out.print("³¯Â¥:");
+				System.out.print("ë‚ ì§œ:");
 				date=scan.nextLine();
-				System.out.print("Á¦¸ñ:");
+				System.out.print("ì œëª©:");
 				title=scan.nextLine();
-				System.out.print("³»¿ë:");
-				memo=scan.nextLine();
-				*/
-				String result = aNote.CreateNote(null,null);
+				
+				String result = aNote.CreateNote(date,title);
 				System.out.println(result);
 			}
 			else if(menu==2)aNote.ViewNote();
 			else if(menu==3)aNote.UpdateNote(menu);
 			else if(menu==4)aNote.DeleteNote(menu);
 			else if(menu==5) { menu=0; break; }
-			else System.out.println("1~5»çÀÌÀÇ ¼ıÀÚ¸¦ ÀÔ·ÂÇÏ¼¼¿ä");
+			else System.out.println("1~5ì‚¬ì´ì˜ ìˆ«ìë¥¼ ì…ë ¥í•˜ì„¸ìš”");
 		}
 		
 	}
@@ -65,14 +62,15 @@ class Note{
 
 		Scanner scan = new Scanner(System.in);
 		
-		System.out.println("Note¸¦ ¸¸µì´Ï´Ù.");
-		System.out.println("ÀÛ¼º³¯Â¥: ");
-		date = scan.nextLine();
-		
-		System.out.println("Á¦¸ñ : ");
-		title = scan.nextLine();
-		
-		System.out.println("³»¿ë : ");
+		System.out.println("Noteë¥¼ ë§Œë“­ë‹ˆë‹¤.");
+		if(date == NULL && title == NULL){
+			System.out.println("ì‘ì„±ë‚ ì§œ: ");
+			date = scan.nextLine();
+
+			System.out.println("ì œëª© : ");
+			title = scan.nextLine();
+		}
+		System.out.println("ë‚´ìš© : ");
 		String memo = scan.nextLine();
 		
 		Notes note = new Notes(date, title, memo);
@@ -80,52 +78,52 @@ class Note{
 		
 		numberOfnote++;
 		
-		return ("ÀÛ¼º³¯Â¥: "+date+" Á¦¸ñ: "+title+"³ëÆ®°¡ »ı¼ºµÇ¾ú½À´Ï´Ù.");
+		return ("ì‘ì„±ë‚ ì§œ: "+date+" ì œëª©: "+title+"ë…¸íŠ¸ê°€ ìƒì„±ë˜ì—ˆìŠµë‹ˆë‹¤.");
 	}
 
 	public void ViewNote() {
-		System.out.println("ÀÛ¼ºÇÑ ³ëÆ®¸¦ È®ÀÎÇÏ¼¼¿ä");
+		System.out.println("ì‘ì„±í•œ ë…¸íŠ¸ë¥¼ í™•ì¸í•˜ì„¸ìš”");
 		
 		for(int i=0;i<noteList.size();i++) {
 			Notes note = (Notes)noteList.get(i);	
 			System.out.print("<"+(i+1)+">");
-			System.out.print("³¯Â¥ :"+note.getDate());
-			System.out.print(" Á¦¸ñ :"+note.getTitle());
-			System.out.println(" ³»¿ë :"+note.getMemo());
+			System.out.print("ë‚ ì§œ :"+note.getDate());
+			System.out.print(" ì œëª© :"+note.getTitle());
+			System.out.println(" ë‚´ìš© :"+note.getMemo());
 			}
 	}
 	
 
 	public String UpdateNote(int number) {
 			
-		System.out.println("¼öÁ¤¸Ş´º ÀÔ´Ï´Ù ");
+		System.out.println("ìˆ˜ì •ë©”ë‰´ ì…ë‹ˆë‹¤ ");
 		
 		Scanner scan = new Scanner(System.in);
 		ViewNote();
 		
-		System.out.print("¼öÁ¤ÇÒ ³ëÆ®ÀÇ ¹øÈ£¸¦ ¼±ÅÃÇÏ¼¼¿ä: ");
+		System.out.print("ìˆ˜ì •í•  ë…¸íŠ¸ì˜ ë²ˆí˜¸ë¥¼ ì„ íƒí•˜ì„¸ìš”: ");
 		number = scan.nextInt();
 		
 		Notes selectedNote = (Notes)noteList.get(number-1);
-		System.out.println("³¯Â¥ : "+selectedNote.getDate());
-		System.out.println("Á¦¸ñ : "+selectedNote.getTitle());
-		System.out.println("³»¿ë : "+selectedNote.getMemo());
-		System.out.println("¼öÁ¤ÇÒ ³»¿ëÀ» ÀÔ·ÂÇÏ¼¼¿ä ");
-		System.out.print("º¯°æÇÒ Á¦¸ñ:");
+		System.out.println("ë‚ ì§œ : "+selectedNote.getDate());
+		System.out.println("ì œëª© : "+selectedNote.getTitle());
+		System.out.println("ë‚´ìš© : "+selectedNote.getMemo());
+		System.out.println("ìˆ˜ì •í•  ë‚´ìš©ì„ ì…ë ¥í•˜ì„¸ìš” ");
+		System.out.print("ë³€ê²½í•  ì œëª©:");
 		selectedNote.setTitle(scan.next());
-		System.out.print("º¯°æÇÒ ³»¿ë:");
+		System.out.print("ë³€ê²½í•  ë‚´ìš©:");
 		selectedNote.setMemo(scan.next());
 		
-		return "º¯°æµÈ Á¦¸ñ:"+selectedNote.getTitle()+"º¯°æµÈ ³»¿ë:"+selectedNote.getMemo();
+		return "ë³€ê²½ëœ ì œëª©:"+selectedNote.getTitle()+"ë³€ê²½ëœ ë‚´ìš©:"+selectedNote.getMemo();
 	}
 		
 	public Boolean DeleteNote(int number) {
-		System.out.print("»èÁ¦¸Ş´º ÀÔ´Ï´Ù.");
+		System.out.print("ì‚­ì œë©”ë‰´ ì…ë‹ˆë‹¤.");
 		
 		Scanner scan = new Scanner(System.in);
 		ViewNote();
 		
-		System.out.print("»èÁ¦ÇÒ ³ëÆ®ÀÇ ¹øÈ£¸¦ ¼±ÅÃÇÏ¼¼¿ä:");
+		System.out.print("ì‚­ì œí•  ë…¸íŠ¸ì˜ ë²ˆí˜¸ë¥¼ ì„ íƒí•˜ì„¸ìš”:");
 		number=scan.nextInt();
 		if (number<=noteList.size()){
 			noteList.remove(number-1);
