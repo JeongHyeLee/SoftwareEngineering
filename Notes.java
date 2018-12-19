@@ -37,7 +37,7 @@ public class Notes {
 				
 				System.out.print("작성날짜(yy-mm-dd):");
 				date=scan.next();
-				System.out.print("제목:");
+				System.out.print("제목(30자이내로 입력):");
 				title=scan.next();
 				
 				String result = aNote.CreateNote(date, title);
@@ -83,7 +83,7 @@ class Note{
 		if (date == null && title == null) {
 			System.out.println("작성날짜(yy-mm-dd): ");
 			date = scan.nextLine();
-			System.out.println("제목 : ");
+			System.out.println("제목(30자이내로 입력): ");
 			title = scan.nextLine();
 		}
 		
