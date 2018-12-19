@@ -97,7 +97,7 @@ class Note{
 		
 		return ("작성날짜: "+date+" 제목: "+title+"노트가 생성되었습니다.\n");
 	}
-
+	
 	public void ViewNote() {
 		System.out.println("작성한 노트를 확인하세요\n");
 		
@@ -131,7 +131,7 @@ class Note{
 		System.out.print("선택하신 노트를 정말로 삭제하시겠습니까?(yes/no): ");
 		String reply = scan.next();
 		if(reply.equals("yes")) {
-			if (number<=noteList.size()){
+			if (CheckOfListSize(number)){
 				noteList.remove(number-1);
 				return true;
 			}
@@ -141,4 +141,10 @@ class Note{
 			return false;
 	}
 					
+	public Boolean CheckOfListSize(int number) {
+		if(number<=noteList.size())
+			return true;
+		else 
+			return false;
+	}
 }
