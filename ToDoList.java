@@ -19,7 +19,6 @@ public class ToDoList {
 		System.out.println("*            To-Do List Management 프로그램입니다.            *");
 		System.out.println("*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*");
 		
-		
 		if(TDLnotWorked) {
 			for(int i = 0; i < MAX_TDL_LIST; i++) {
 				strCreate[i] = "-1";
@@ -30,7 +29,8 @@ public class ToDoList {
 		}
 		
 		while(num != 5) {
-			System.out.print("\n원하는 작업을 선택하세요.\n1.create(생성), 2.view(보기), 3.update(업데이트), 4.delete(삭제), 5.exit(나가기)\n\n(숫자 1~5 중 하나 선택) > ");
+			System.out.print("\n원하는 작업을 선택하세요.\n1.create(생성), 2.view(보기), 3.update(업데이트), "
+							+ "4.delete(삭제), 5.exit(나가기)\n\n(숫자 1~5 중 하나 선택) > ");
 			num = scan.nextInt();
 			System.out.println();
 			switch(num) {
@@ -47,7 +47,6 @@ public class ToDoList {
 						System.out.println("저장 성공");
 					else
 						System.out.println("문제 발생!");
-					
 					break;
 					
 				case 2:
@@ -57,9 +56,8 @@ public class ToDoList {
 				case 3:
 					System.out.print("업데이트를 원하는 To-Do 리스트의 keyNumber를 입력하세요.(keyNumber는 2.view(보기)에서 확인 가능) :\n> ");
 					keyNumber = scan.nextInt();
-					if(this.UpdateList(keyNumber)) {
+					if(this.UpdateList(keyNumber))
 						System.out.println("< keyNumber #" + keyNumber + "번 > To-Do List 업데이트 성공!");
-					}
 					else
 						System.out.println("< keyNumber #" + keyNumber + "번 > To-Do List 업데이트 실패!");
 					break;
@@ -67,9 +65,8 @@ public class ToDoList {
 				case 4:
 					System.out.print("삭제를 원하는 To-Do 리스트의 keyNumber를 입력하세요.(keyNumber는 2.view(보기)에서 확인 가능) :\n> ");
 					keyNumber = scan.nextInt();
-					if(this.DeleteList(keyNumber)) {
+					if(this.DeleteList(keyNumber))
 						System.out.println("< keyNumber #" + keyNumber + "번 > To-Do List 삭제 성공!");
-					}
 					else
 						System.out.println("< keyNumber #" + keyNumber + "번 > To-Do List 삭제 실패!");
 					break;
@@ -139,24 +136,3 @@ public class ToDoList {
 			return false;
 	}
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
