@@ -6,12 +6,12 @@ class ToDoListTest {
 	@Test
 	void CreateListTest() {
 		ToDoList toDoList = new ToDoList();
-		assertSame(toDoList.CreateList("2018-12-01", "2018-12-21", "Finish Software Engineering HW3!!!"), true);
+		assertEquals(true, toDoList.CreateList("2018-12-01", "2018-12-21", "Finish Software Engineering HW3!!!"));
 	}
 	
 	@Test
 	void DeleteListTest() {
 		ToDoList toDoList = new ToDoList();
-		assertFalse(toDoList.DeleteList(10) == false);
+		assertTrue(toDoList.DeleteList(0));
 	}
 }
