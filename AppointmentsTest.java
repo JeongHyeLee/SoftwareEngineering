@@ -1,26 +1,17 @@
 import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.Test;
 
-import java.util.Vector;
-
-
-
-public class AppointmentsTest {
-
+class AppointmentsTest {
 	@Test
-	public void CreateAppointmentTest() {
-		Appointments appointments = new Appointments();
-		assertTrue(appointments.CreateAppointment(20181224, "Jisoo", "SMWU"));
-
+	void testGetLocation() {
+		Appointments appointments= new Appointments(20181224, "jisoo", "house");
+		assertEquals(appointments.getLocation(), "house");
+		
 	}
 	@Test
-	public void UpdateAppointmentTest() {
-	   Appointments appointments = new Appointments();
-	   Vector<Word> v= new Vector<Word>();
-	   int sizeAppointment=v.size();
-	   appointments.ViewAppointment();
-	   assertEquals(sizeAppointment, v.size());
+	void CreateContactTest() {
+		Appointment appointment= new Appointment();
+		assertTrue(appointment.checkVectorSize(-1));
+		
 	}
-
-
 }
