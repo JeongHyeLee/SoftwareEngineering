@@ -1,18 +1,23 @@
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.Assert.*;
+import java.util.Vector;
+import org.junit.Test;
 
-import org.junit.jupiter.api.Test;
-
-class ContactTest {
+public class AppointmentsTest {
 
 	@Test
-	void CreateContactTest() {
-		Contact contact = new Contact();
-		assertTrue(contact.CreateContact("jung", "010-1234-5678", "jung@naver.com"));
+	public void CreateAppointmentTest() {
+		Appointments appointments = new Appointments();
+		assertTrue(appointments.CreateAppointment(20181224, "Jisoo", "SMWU"));
+
 	}
-	
 	@Test
-	void DeleteContactTest() {
-		Contact contact = new Contact();
-		assertFalse(contact.DeleteContact("kim"));
+	public void UpdateAppointmentTest() {
+	   Appointments appointments = new Appointments();
+	   Vector<Word> v= new Vector<Word>();
+	   int sizeAppointment=v.size();
+	   appointments.ViewAppointment();
+	   assertEquals(sizeAppointment, v.size());
 	}
+
+
 }
