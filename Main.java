@@ -1,4 +1,6 @@
-﻿import java.util.*;
+import java.util.*;
+
+
 
 public class Main {
 	
@@ -12,6 +14,7 @@ public class Main {
 		/*----------Constructor----------*/
 		ToDoList ToDoList = new ToDoList();
 		Contacts Contacts = new Contacts(null, null, null);
+		Appointments Appointments = new Appointments();
 		Notes Notes = new Notes();
 		/*-----------------------------*/
 		
@@ -39,7 +42,7 @@ public class Main {
 					
 				case 3:
 					System.out.println();
-					System.out.println("(지수 ) : 약속 실행");
+					Appointments.run();
 					break;
 					
 				case 4:
