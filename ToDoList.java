@@ -19,14 +19,7 @@ public class ToDoList {
 		System.out.println("*            To-Do List Management 프로그램입니다.            *");
 		System.out.println("*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*");
 		
-		if(TDLnotWorked) {
-			for(int i = 0; i < MAX_TDL_LIST; i++) {
-				strCreate[i] = "-1";
-				strDue[i] = "-1";
-				strDescrip[i] = "-1";
-			}
-			TDLnotWorked = false;
-		}
+		Initialize();
 		
 		while(num != 5) {
 			System.out.print("\n원하는 작업을 선택하세요.\n1.create(생성), 2.view(보기), 3.update(업데이트), "
@@ -73,6 +66,17 @@ public class ToDoList {
 			}
 		}
 		num = 0;
+	}
+	
+	public void Initialize() {
+		if(TDLnotWorked) {
+			for(int i = 0; i < MAX_TDL_LIST; i++) {
+				strCreate[i] = "-1";
+				strDue[i] = "-1";
+				strDescrip[i] = "-1";
+			}
+			TDLnotWorked = false;
+		}		
 	}
 	
 	public boolean CreateList(String createDate, String dueDate, String description) {
