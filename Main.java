@@ -46,9 +46,9 @@ public class Main {
 					break;
 					
 				case 4:
+				
+					System.out.println();
 					Notes.ManageNotes();
-					System.out.println("editing note class");
-					Notes.NoteManagament();
 					break;
 					
 				case 5:
